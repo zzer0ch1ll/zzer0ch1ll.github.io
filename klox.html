@@ -3,9 +3,18 @@
   <div id="klox">just a second</div>
     <script>
 setInterval(function () {
-document.getElementById("klox").innerHTML = Date.now().toString().split('').join('').replace(/(.{4})(.{1})(.{2})(.{3})(.*)/, '$1:$2:$3:$4');
+var change = Date.now()
+var quarters = Math.floor(change / 1000000000)
+change = change - quarters * 1000000000
+var dimes = Math.floor(change / 100000000)
+change = change - dimes * 100000000
+var nickles = Math.floor(change / 1000000)
+change = change - nickles * 1000000
+var pennies = Math.floor(change / 1000)
+document.getElementById("klox").innerHTML = `${quarters}:${dimes}:${nickles}:${pennies}`;
     },1000);
   </script>
+
 </body>
 </html>
 
